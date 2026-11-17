@@ -116,6 +116,16 @@ body {
     box-shadow 220ms ease;
 }
 
+.tech-pill {
+  display: inline-block;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.tech-pill:hover {
+  transform: translateY(-2px) scale(1.04);
+  background-color: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
 .skill-item {
   transition: color 180ms ease, transform 180ms ease;
 }
@@ -159,6 +169,30 @@ body {
   }
 }
 
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @supports (animation-timeline: view()) {
   .scroll-reveal,
   section h2,
@@ -169,6 +203,35 @@ body {
     animation: reveal-in 700ms cubic-bezier(0.2, 0.75, 0.3, 1) both;
     animation-timeline: view();
     animation-range: entry 0% entry 35%;
+  }
+
+  .project-card {
+    animation-name: slide-in-left;
+    animation-range: entry 0% entry 45%;
+  }
+
+  .project-card:nth-child(even) {
+    animation-name: slide-in-right;
+    animation-range: entry 12% entry 57%;
+  }
+
+  .project-card:nth-child(3n) {
+    animation-range: entry 24% entry 69%;
+  }
+
+  .skill-group:nth-child(odd) {
+    animation-name: slide-in-left;
+    animation-range: entry 0% entry 48%;
+  }
+
+  .skill-group:nth-child(even) {
+    animation-name: slide-in-right;
+    animation-range: entry 12% entry 60%;
+  }
+
+  .skill-group:nth-child(3n) {
+    animation-name: slide-in-left;
+    animation-range: entry 24% entry 72%;
   }
 }
 

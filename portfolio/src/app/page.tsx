@@ -230,7 +230,7 @@ export default function Home() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-md bg-accent/10 px-2.5 py-0.5 font-mono text-xs text-accent"
+                      className="tech-pill rounded-md bg-accent/10 px-2.5 py-0.5 font-mono text-xs text-accent"
                     >
                       {t}
                     </span>
