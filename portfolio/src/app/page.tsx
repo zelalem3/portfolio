@@ -74,7 +74,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <Link href="#home" className="text-lg font-bold tracking-tight text-accent">
+          <Link href="#home" className="nav-brand text-lg font-bold tracking-tight text-accent">
             ZG
           </Link>
           <ul className="hidden gap-8 text-sm font-medium text-muted md:flex">
@@ -108,33 +108,33 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <header id="home" className="flex min-h-screen items-center pt-16">
-        <div className="mx-auto max-w-5xl px-6">
-          <p className="mb-3 font-mono text-sm text-accent">Hi, I&apos;m</p>
-          <h1 className="mb-2 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+      <header id="home" className="hero-section flex min-h-screen items-center pt-16">
+        <div className="hero-content mx-auto max-w-5xl px-6">
+          <p className="hero-enter hero-enter-1 mb-3 font-mono text-sm text-accent">Hi, I&apos;m</p>
+          <h1 className="hero-enter hero-enter-2 mb-2 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Zelalem Getnet
           </h1>
-          <h2 className="mb-6 text-xl font-medium text-muted sm:text-2xl">
+          <h2 className="hero-enter hero-enter-3 mb-6 text-xl font-medium text-muted sm:text-2xl">
             Software Engineer · Backend-Focused Full Stack & App Developer
           </h2>
-          <p className="mb-8 max-w-xl text-lg text-muted">
+          <p className="hero-enter hero-enter-4 mb-8 max-w-xl text-lg text-muted">
             I build scalable REST APIs, real-time applications, reliable backend services, and cross-platform mobile apps using Python, Node.js, Django, Flask, Laravel, React Native, Flutter/Dart, and modern tooling.
           </p>
-          <div className="mb-10 flex flex-wrap gap-4">
+          <div className="hero-enter hero-enter-5 mb-10 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-hover"
+              className="action-button rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-hover"
             >
               View Projects
             </a>
             <a
               href="mailto:zgetnet24@gmail.com"
-              className="rounded-lg border border-border px-6 py-3 text-sm font-semibold transition hover:bg-surface"
+              className="action-button rounded-lg border border-border px-6 py-3 text-sm font-semibold transition hover:bg-surface"
             >
               Get in Touch
             </a>
           </div>
-          <div className="flex gap-5">
+          <div className="hero-enter hero-enter-6 flex gap-5">
             <a
               href="https://github.com/zelalem3"
               target="_blank"
@@ -176,7 +176,7 @@ export default function Home() {
           <h2 className="mb-8 text-2xl font-bold tracking-tight after:mt-2 after:block after:h-0.5 after:w-10 after:rounded after:bg-accent">
             About
           </h2>
-          <div className="max-w-2xl space-y-4 text-muted">
+          <div className="scroll-reveal max-w-2xl space-y-4 text-muted">
             <p>
               Software Engineer focused on{" "}
               <strong className="font-semibold text-foreground">
@@ -212,7 +212,7 @@ export default function Home() {
             {projects.map((project) => (
               <article
                 key={project.title}
-                className="rounded-xl border border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg"
+                className="project-card rounded-xl border border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg"
               >
                 <div className="mb-1 flex items-baseline justify-between gap-2">
                   <h3 className="text-lg font-semibold">{project.title}</h3>
@@ -266,13 +266,13 @@ export default function Home() {
           </h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {skills.map((group) => (
-              <div key={group.category}>
+              <div key={group.category} className="skill-group">
                 <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
                   {group.category}
                 </h3>
                 <ul className="space-y-1.5">
                   {group.items.map((item) => (
-                    <li key={item} className="text-sm text-muted">
+                    <li key={item} className="skill-item text-sm text-muted">
                       {item}
                     </li>
                   ))}
@@ -290,7 +290,7 @@ export default function Home() {
             Education
           </h2>
           <div className="max-w-xl space-y-8">
-            <div className="border-b border-border pb-8">
+            <div className="education-item border-b border-border pb-8">
               <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-lg font-semibold">
                   ALX Software Engineering Program
@@ -304,7 +304,7 @@ export default function Home() {
                 Specialization: Backend Engineering
               </p>
             </div>
-            <div>
+            <div className="education-item">
               <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-lg font-semibold">
                   B.Sc. in Computer Science
@@ -332,7 +332,7 @@ export default function Home() {
           <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
             <a
               href="mailto:zgetnet24@gmail.com"
-              className="rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
+              className="contact-card rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
             >
               <span className="mb-1 block text-xs uppercase tracking-wider text-muted">
                 Email
@@ -341,7 +341,7 @@ export default function Home() {
             </a>
             <a
               href="tel:+251968610963"
-              className="rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
+              className="contact-card rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
             >
               <span className="mb-1 block text-xs uppercase tracking-wider text-muted">
                 Phone
@@ -352,7 +352,7 @@ export default function Home() {
               href="https://linkedin.com/in/zelalem-getnet"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
+              className="contact-card rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
             >
               <span className="mb-1 block text-xs uppercase tracking-wider text-muted">
                 LinkedIn
@@ -363,7 +363,7 @@ export default function Home() {
               href="https://github.com/zelalem3"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
+              className="contact-card rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
             >
               <span className="mb-1 block text-xs uppercase tracking-wider text-muted">
                 GitHub
