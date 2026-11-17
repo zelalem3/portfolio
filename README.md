@@ -33,4 +33,4 @@ Add a `CNAME` file with your domain or configure it in the Pages settings.
 
 ---
 
-Built with ❤️ for recruiters who value clean code and clear communication.
+
