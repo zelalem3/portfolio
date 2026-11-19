@@ -7,7 +7,6 @@ type ScrollRevealProps = {
   className?: string;
   delay?: number;
   direction?: "up" | "left" | "right" | "scale";
-  /** false = replay every time (default). true = only once */
   once?: boolean;
 };
 
@@ -19,7 +18,7 @@ export default function ScrollReveal({
   once = false,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<number | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -33,40 +32,46 @@ export default function ScrollReveal({
       return;
     }
 
+    const show = () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (delay > 0) {
+        timeoutRef.current = setTimeout(() => {
+          el.classList.add("is-visible");
+        }, delay);
+      } else {
+        el.classList.add("is-visible");
+      }
+    };
+
+    const hide = () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+      el.classList.remove("is-visible");
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (timeoutRef.current !== null) {
-            window.clearTimeout(timeoutRef.current);
-            timeoutRef.current = null;
-          }
-
           if (entry.isIntersecting) {
-            timeoutRef.current = window.setTimeout(() => {
-              el.classList.add("is-visible");
-              timeoutRef.current = null;
-            }, delay);
-
-            if (once) {
-              observer.unobserve(el);
-            }
+            show();
+            if (once) observer.unobserve(el);
           } else if (!once) {
-            el.classList.remove("is-visible");
+            hide();
           }
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: "0px 0px -48px 0px",
+        threshold: 0.08,
+        rootMargin: "0px 0px -10% 0px",
       }
     );
 
     observer.observe(el);
 
     return () => {
-      if (timeoutRef.current !== null) {
-        window.clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
       observer.disconnect();
     };
   }, [delay, once]);

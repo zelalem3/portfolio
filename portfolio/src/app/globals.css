@@ -250,44 +250,20 @@ body {
   background: color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
-
-/* ========== JS-based ScrollReveal (reliable across browsers) ========== */
-
-.scroll-reveal-js {
-  opacity: 0;
-  will-change: transform, opacity;
-  transition:
-    opacity 0.7s cubic-bezier(0.2, 0.75, 0.3, 1),
-    transform 0.7s cubic-bezier(0.2, 0.75, 0.3, 1);
-}
-
-.scroll-reveal-js.reveal-up {
-  transform: translateY(28px);
-}
-
-.scroll-reveal-js.reveal-left {
-  transform: translateX(-40px);
-}
-
-.scroll-reveal-js.reveal-right {
-  transform: translateX(40px);
-}
-
-.scroll-reveal-js.reveal-scale {
-  transform: translateY(16px) scale(0.94);
-}
-
-.scroll-reveal-js.is-visible {
+/* Must beat .skill-group.scroll-reveal-js.reveal-left (3 classes) */
+.scroll-reveal-js.is-visible,
+.scroll-reveal-js.is-visible.reveal-up,
+.scroll-reveal-js.is-visible.reveal-left,
+.scroll-reveal-js.is-visible.reveal-right,
+.scroll-reveal-js.is-visible.reveal-scale,
+.skill-group.scroll-reveal-js.is-visible,
+.skill-group.scroll-reveal-js.is-visible.reveal-left,
+.skill-group.scroll-reveal-js.is-visible.reveal-right,
+.skill-group.scroll-reveal-js.is-visible.reveal-up,
+.education-item.scroll-reveal-js.is-visible,
+.education-item.scroll-reveal-js.is-visible.reveal-left {
   opacity: 1;
   transform: translateY(0) translateX(0) scale(1);
-}
-
-
-/* Education items */
-.education-item.scroll-reveal-js {
-  transition:
-    opacity 0.75s cubic-bezier(0.2, 0.75, 0.3, 1),
-    transform 0.75s cubic-bezier(0.2, 0.75, 0.3, 1);
 }
 
 /* Contact cards */

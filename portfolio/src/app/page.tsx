@@ -294,6 +294,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      
     {/* Education */}
     <section id="education" className="bg-surface/50 py-20">
       <div className="mx-auto max-w-5xl px-6">
@@ -319,7 +321,11 @@ export default function Home() {
               Specialization: Backend Engineering
             </p>
           </ScrollReveal>
-          <ScrollReveal className="education-item" direction="left" delay={120}>
+          <ScrollReveal
+            className="education-item"
+            direction="right"
+            delay={150}
+          >
             <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="text-lg font-semibold">
                 B.Sc. in Computer Science
