@@ -260,28 +260,40 @@ export default function Home() {
         </div>
       </section>
 
-      { /*skills */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        {skills.map((group, index) => (
-          <ScrollReveal
-            key={group.category}
-            className="skill-group"
-            direction={index % 2 === 0 ? "left" : "right"}
-            delay={index * 100}
-          >
-            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
-              {group.category}
-            </h3>
-            <ul className="space-y-1.5">
-              {group.items.map((item) => (
-                <li key={item} className="skill-item text-sm text-muted">
-                  {item}
-                </li>
-              ))}
-            </ul>
+      {/* Skills */}
+      <section id="skills" className="py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <ScrollReveal direction="up" delay={0}>
+            <h2 className="mb-10 text-2xl font-bold tracking-tight after:mt-2 after:block after:h-0.5 after:w-10 after:rounded after:bg-accent">
+              Technical Skills
+            </h2>
           </ScrollReveal>
-        ))}
-      </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {skills.map((group, index) => (
+              <ScrollReveal
+                key={group.category}
+                className="skill-group rounded-xl border border-border bg-surface/40 p-5"
+                direction={index % 2 === 0 ? "left" : "right"}
+                delay={index * 90}
+              >
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-accent">
+                  {group.category}
+                </h3>
+                <ul className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="skill-item rounded-md border border-border bg-background/60 px-2.5 py-1 text-sm text-muted"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
     {/* Education */}
     <section id="education" className="bg-surface/50 py-20">
       <div className="mx-auto max-w-5xl px-6">
