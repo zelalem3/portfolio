@@ -249,3 +249,120 @@ body {
 ::selection {
   background: color-mix(in srgb, var(--accent) 30%, transparent);
 }
+
+
+/* ========== JS-based ScrollReveal (reliable across browsers) ========== */
+
+.scroll-reveal-js {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.75, 0.3, 1),
+    transform 0.7s cubic-bezier(0.2, 0.75, 0.3, 1);
+}
+
+.scroll-reveal-js.reveal-up {
+  transform: translateY(28px);
+}
+
+.scroll-reveal-js.reveal-left {
+  transform: translateX(-40px);
+}
+
+.scroll-reveal-js.reveal-right {
+  transform: translateX(40px);
+}
+
+.scroll-reveal-js.reveal-scale {
+  transform: translateY(16px) scale(0.94);
+}
+
+.scroll-reveal-js.is-visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+
+/* Education items */
+.education-item.scroll-reveal-js {
+  transition:
+    opacity 0.75s cubic-bezier(0.2, 0.75, 0.3, 1),
+    transform 0.75s cubic-bezier(0.2, 0.75, 0.3, 1);
+}
+
+/* Contact cards */
+.contact-card.scroll-reveal-js {
+  transition:
+    opacity 0.6s cubic-bezier(0.2, 0.75, 0.3, 1),
+    transform 0.6s cubic-bezier(0.2, 0.75, 0.3, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.contact-card:hover {
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-js {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .skill-group .skill-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ========== Skills: groups fly in, items cascade into place ========== */
+
+.skill-group.scroll-reveal-js {
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Start further away so the "move into place" is obvious */
+.skill-group.scroll-reveal-js.reveal-left {
+  transform: translateX(-64px) translateY(12px);
+}
+
+.skill-group.scroll-reveal-js.reveal-right {
+  transform: translateX(64px) translateY(12px);
+}
+
+.skill-group.scroll-reveal-js.reveal-up {
+  transform: translateY(40px);
+}
+
+/* Individual skill items start hidden/offset and cascade in after the group */
+.skill-group .skill-item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    color 180ms ease;
+}
+
+/* When the group becomes visible, items slide into their final place with stagger */
+.skill-group.scroll-reveal-js.is-visible .skill-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-group.scroll-reveal-js.is-visible .skill-item:nth-child(1) { transition-delay: 80ms; }
+.skill-group.scroll-reveal-js.is-visible .skill-item:nth-child(2) { transition-delay: 140ms; }
+.skill-group.scroll-reveal-js.is-visible .skill-item:nth-child(3) { transition-delay: 200ms; }
+.skill-group.scroll-reveal-js.is-visible .skill-item:nth-child(4) { transition-delay: 260ms; }
+.skill-group.scroll-reveal-js.is-visible .skill-item:nth-child(5) { transition-delay: 320ms; }
+.skill-group.scroll-reveal-js.is-visible .skill-item:nth-child(6) { transition-delay: 380ms; }
+
+/* Keep hover effect after items have arrived */
+.skill-group.scroll-reveal-js.is-visible .skill-item:hover {
+  color: var(--foreground);
+  transform: translateX(4px);
+}

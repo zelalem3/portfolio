@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ScrollReveal from "./components/ScrollReveal";
+
 
 const projects = [
   {
@@ -258,122 +260,134 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills */}
-      <section id="skills" className="py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="mb-10 text-2xl font-bold tracking-tight after:mt-2 after:block after:h-0.5 after:w-10 after:rounded after:bg-accent">
-            Technical Skills
-          </h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {skills.map((group) => (
-              <div key={group.category} className="skill-group">
-                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
-                  {group.category}
-                </h3>
-                <ul className="space-y-1.5">
-                  {group.items.map((item) => (
-                    <li key={item} className="skill-item text-sm text-muted">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Education */}
-      <section id="education" className="bg-surface/50 py-20">
-        <div className="mx-auto max-w-5xl px-6">
+      { /*skills */}
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        {skills.map((group, index) => (
+          <ScrollReveal
+            key={group.category}
+            className="skill-group"
+            direction={index % 2 === 0 ? "left" : "right"}
+            delay={index * 100}
+          >
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
+              {group.category}
+            </h3>
+            <ul className="space-y-1.5">
+              {group.items.map((item) => (
+                <li key={item} className="skill-item text-sm text-muted">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        ))}
+      </div>
+    {/* Education */}
+    <section id="education" className="bg-surface/50 py-20">
+      <div className="mx-auto max-w-5xl px-6">
+        <ScrollReveal direction="up" delay={0}>
           <h2 className="mb-10 text-2xl font-bold tracking-tight after:mt-2 after:block after:h-0.5 after:w-10 after:rounded after:bg-accent">
             Education
           </h2>
-          <div className="max-w-xl space-y-8">
-            <div className="education-item border-b border-border pb-8">
-              <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-lg font-semibold">
-                  ALX Software Engineering Program
-                </h3>
-                <span className="font-mono text-sm text-muted">2024</span>
-              </div>
-              <p className="text-sm font-medium text-accent">
-                Holberton School
-              </p>
-              <p className="mt-1 text-sm text-muted">
-                Specialization: Backend Engineering
-              </p>
+        </ScrollReveal>
+        <div className="max-w-xl space-y-8">
+          <ScrollReveal
+            className="education-item border-b border-border pb-8"
+            direction="left"
+            delay={0}
+          >
+            <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="text-lg font-semibold">
+                ALX Software Engineering Program
+              </h3>
+              <span className="font-mono text-sm text-muted">2024</span>
             </div>
-            <div className="education-item">
-              <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-lg font-semibold">
-                  B.Sc. in Computer Science
-                </h3>
-                <span className="font-mono text-sm text-muted">2026</span>
-              </div>
-              <p className="text-sm font-medium text-accent">
-                Unity University
-              </p>
+            <p className="text-sm font-medium text-accent">Holberton School</p>
+            <p className="mt-1 text-sm text-muted">
+              Specialization: Backend Engineering
+            </p>
+          </ScrollReveal>
+          <ScrollReveal className="education-item" direction="left" delay={120}>
+            <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="text-lg font-semibold">
+                B.Sc. in Computer Science
+              </h3>
+              <span className="font-mono text-sm text-muted">2026</span>
             </div>
-          </div>
+            <p className="text-sm font-medium text-accent">Unity University</p>
+          </ScrollReveal>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-20">
-        <div className="mx-auto max-w-5xl px-6 text-center">
+    {/* Contact */}
+    <section id="contact" className="py-20">
+      <div className="mx-auto max-w-5xl px-6 text-center">
+        <ScrollReveal direction="up" delay={0}>
           <h2 className="mb-4 text-2xl font-bold tracking-tight after:mx-auto after:mt-2 after:block after:h-0.5 after:w-10 after:rounded after:bg-accent">
             Get In Touch
           </h2>
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={60}>
           <p className="mx-auto mb-10 max-w-md text-muted">
             I&apos;m currently open to new opportunities. Whether you have a
             question or just want to say hi, feel free to reach out.
           </p>
-          <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
+        </ScrollReveal>
+        <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
+          <ScrollReveal direction="scale" delay={0}>
             <a
               href="mailto:zgetnet24@gmail.com"
-              className="contact-card rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
+              className="contact-card block rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
             >
               <span className="mb-1 block text-xs uppercase tracking-wider text-muted">
                 Email
               </span>
               <span className="font-medium">zgetnet24@gmail.com</span>
             </a>
+          </ScrollReveal>
+          <ScrollReveal direction="scale" delay={80}>
             <a
               href="tel:+251968610963"
-              className="contact-card rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
+              className="contact-card block rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
             >
               <span className="mb-1 block text-xs uppercase tracking-wider text-muted">
                 Phone
               </span>
               <span className="font-medium">+251 968 610 963</span>
             </a>
+          </ScrollReveal>
+          <ScrollReveal direction="scale" delay={160}>
             <a
               href="https://linkedin.com/in/zelalem-getnet"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact-card rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
+              className="contact-card block rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
             >
               <span className="mb-1 block text-xs uppercase tracking-wider text-muted">
                 LinkedIn
               </span>
               <span className="font-medium">zelalem-getnet</span>
             </a>
+          </ScrollReveal>
+          <ScrollReveal direction="scale" delay={240}>
             <a
               href="https://github.com/zelalem3"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact-card rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
+              className="contact-card block rounded-xl border border-border bg-surface p-5 text-left transition hover:-translate-y-0.5 hover:border-accent"
             >
               <span className="mb-1 block text-xs uppercase tracking-wider text-muted">
                 GitHub
               </span>
               <span className="font-medium">@zelalem3</span>
             </a>
-          </div>
+          </ScrollReveal>
         </div>
-      </section>
+      </div>
+    </section>
 
+         
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-sm text-muted">
         <p>Built by Zelalem Getnet · 2026 · Next.js</p>
